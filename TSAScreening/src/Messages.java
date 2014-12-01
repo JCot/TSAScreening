@@ -10,25 +10,37 @@ public class Messages {
 	
 	static class Passenger{
 		
-	}
-	
-	static class EndOfDay{
+		private final String name;
+		
+		public Passenger(String name){
+			this.name = name;
+		}
+		
+		public String getName(){
+			return name;
+		}
 		
 	}
 	
-	static class BagScanReady{
-		
-	}
+	static class EndOfDay{}
+	
+	static class BagScanReady{}
 	
 	static class Bag{
+		private final String passengerId;
 		
+		public Bag(String passengerId){
+			this.passengerId = passengerId;
+		}
+		
+		public String getPassengerId(){
+			return passengerId;
+		}
 	}
 	
 	static class Result{
 		
 	}
 	
-	static class BodyScanReady{
-		
-	}
+	static class BodyScanReady{}
 }
