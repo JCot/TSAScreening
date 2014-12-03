@@ -10,14 +10,14 @@ public class Messages {
 	
 	static class Passenger{
 		
-		private final String name;
+		private final String id;
 		
 		public Passenger(String name){
-			this.name = name;
+			this.id = name;
 		}
 		
-		public String getName(){
-			return name;
+		public String getPassengerId(){
+			return id;
 		}
 		
 	}
@@ -39,7 +39,27 @@ public class Messages {
 	}
 	
 	static class Result{
+		private final String passengerId;
+		private final boolean result;
+		private final int bagOrBody; // 0 for bag, 1 for body
 		
+		public Result(String passengerId, boolean result, int bagOrBody){
+			this.passengerId = passengerId;
+			this.result = result;
+			this.bagOrBody = bagOrBody;
+		}
+		
+		public String getPassengerId(){
+			return passengerId;
+		}
+		
+		public boolean getResult(){
+			return result;
+		}
+		
+		public int getBagOrBody(){
+			return bagOrBody;
+		}
 	}
 	
 	static class BodyScanReady{}

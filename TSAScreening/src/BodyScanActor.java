@@ -1,11 +1,14 @@
 import java.util.Random;
 
+import akka.actor.ActorRef;
 import akka.actor.UntypedActor;
 
 
 public class BodyScanActor extends UntypedActor{
 
 	private Random rand = new Random();
+	private int lineNum;
+	private ActorRef security;
 	
 	@Override
 	public void onReceive(Object message) throws Exception {
@@ -17,17 +20,18 @@ public class BodyScanActor extends UntypedActor{
 
 			//Passenger did not pass
 			if(result <= 20){
-				System.out.println("Passenger failed inspection.");
-				//TODO message security actor.
+				System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " failed inspection.");
+				security.tell(new Messages.Result(((Messages.Passenger)message).getPassengerId(), false, 1), self());
 			}
 
 			else{
-				//TODO message to queue actor
+				System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " passed inspection.");
+				security.tell(new Messages.Result(((Messages.Passenger)message).getPassengerId(), true, 1), self());
 			}
 		}
 		
 		if(message instanceof Messages.EndOfDay){
-			
+			security.tell((Messages.EndOfDay)message, self());
 		}
 		
 	}

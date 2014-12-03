@@ -1,10 +1,14 @@
+import java.util.ArrayList;
 import java.util.Random;
 
+import akka.actor.ActorRef;
 import akka.actor.UntypedActor;
 
 public class DocumentCheckActor extends UntypedActor{
 
 	private Random rand = new Random();
+	private ArrayList<ActorRef> queues = new ArrayList<ActorRef>();
+	private int nextLine = 0;
 	
 	@Override
 	public void onReceive(Object message) throws Exception {
@@ -21,14 +25,16 @@ public class DocumentCheckActor extends UntypedActor{
 			}
 			
 			else{
-				//TODO message to queue actor
+				queues.get(nextLine++).tell((Messages.Passenger)message, self());
 			}
 			
 			
 		}
 		
 		if(message instanceof Messages.EndOfDay){
-			
+			for(int i = 0; i < queues.size(); i++){
+				queues.get(i).tell((Messages.EndOfDay)message, self());
+			}
 		}
 	}
 

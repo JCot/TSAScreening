@@ -12,7 +12,7 @@ public class JailActor extends UntypedActor{
 		
 		if(message instanceof Messages.Passenger){
 			System.out.println("Jail Actor received a Passenger message.");
-			System.out.println("Passenger " + ((Messages.Passenger)message).getName() + " is sent to jail.");
+			System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " is sent to jail.");
 			
 			jailedPassengers.add((Messages.Passenger)message);
 		}
@@ -22,7 +22,7 @@ public class JailActor extends UntypedActor{
 			System.out.println("Jail Actor sends passengers in jail to permanent detention.");
 			
 			for(int i = 0; i < jailedPassengers.size(); i++){
-				System.out.println("Passenger " + jailedPassengers.get(i).getName() + " is sent to pernament detention.");
+				System.out.println("Passenger " + jailedPassengers.get(i).getPassengerId() + " is sent to pernament detention.");
 			}
 		}
 		
