@@ -7,8 +7,12 @@ import akka.actor.UntypedActor;
 public class DocumentCheckActor extends UntypedActor{
 
 	private Random rand = new Random();
-	private ArrayList<ActorRef> queues = new ArrayList<ActorRef>();
+	private ArrayList<ActorRef> queues;
 	private int nextLine = 0;
+	
+	public DocumentCheckActor(ArrayList<ActorRef> q){
+		queues = q;
+	}
 	
 	@Override
 	public void onReceive(Object message) throws Exception {

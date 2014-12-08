@@ -11,6 +11,10 @@ public class QueueActor extends UntypedActor{
 	private ActorRef bagScanner;
 	private ActorRef bodyScanner;
 	
+	public QueueActor(int lNum) {
+		lineNum = lNum;
+	}
+	
 	@Override
 	public void onReceive(Object message) throws Exception {
 		

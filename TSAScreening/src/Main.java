@@ -19,19 +19,21 @@ public class Main {
 		//pass these in a collection of some kind to the document check.
 		for (int i = 0; i < numLines; i++) {
 			//create QueueActor
-			QueueActor q = new QueueActor();
+			QueueActor q = new QueueActor(i);
 			BagScanActor b = new BagScanActor();//Create BagScan
 			//create bodyScan
 			//create securityActor
-			//add to queues
+			queues.add((ActorRef) q);//add to queues
+			
 		}
 		//create Document Check
+		DocumentCheckActor docCheck = new DocumentCheckActor(queues); //pass queues to document check
 		//create Jail
-		//pass queues to document check
+		JailActor jail = new JailActor();
 		
 		
-		//process pasengers...how do you know how many passengers are in each line?
-		
+		//process passengers...how do you know how many passengers are in each line?
+		//docCheck.tell() this doesn't work?
 		
 		//send shutdown message when all passengers are processed.  
 		
