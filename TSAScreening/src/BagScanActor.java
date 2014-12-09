@@ -22,7 +22,7 @@ public class BagScanActor extends UntypedActor{
 			//TODO need to make queue and add bag to queue?
 			int result = rand.nextInt(101);
 
-			System.out.println("Bag Scan Actor received a Bag message.");
+			System.out.println("Bag Scan Actor is scanning "+ ((Messages.Bag)message).getPassengerId() + "'s bag.");
 
 			//Bag did not pass
 			if(result <= 20){

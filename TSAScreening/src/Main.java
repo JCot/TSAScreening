@@ -87,18 +87,21 @@ public class Main {
 		
 		//process passengers...how do you know how many passengers are in each line?
 		//How many passengers do we need? What determines an "End Of Day"?
-		Messages.Passenger pass = new Messages.Passenger("Pop");
+		Messages.Passenger a = new Messages.Passenger("Pop");
+		Messages.Passenger b = new Messages.Passenger("Koch");
 		Messages.EndOfDay end = new Messages.EndOfDay();
 		docCheck.start();
-		docCheck.tell(pass);
+		docCheck.tell(a);
+		docCheck.tell(b);
 		
 		//send shutdown message when all passengers are processed. 
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(5000);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("Shutting down");
+		
+		System.out.println("---Shutting down---"); //Print for testing
 		docCheck.tell(end);
 		
 

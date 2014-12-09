@@ -21,16 +21,23 @@ public class BodyScanActor extends UntypedActor{
 		if(message instanceof Messages.Passenger){
 			int result = rand.nextInt(101);
 
-			System.out.println("Body Scan Actor received a Passenger message.");
+			System.out.println("Body Scan Actor is scanning " + ((Messages.Passenger)message).getPassengerId() + ".");
 
+			//Put some time in for processing
+			try {
+				Thread.sleep(1000);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
 			//Passenger did not pass
 			if(result <= 20){
-				System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " failed inspection.");
+				System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " failed the body inspection.");
 				security.tell(new Messages.Result(((Messages.Passenger)message).getPassengerId(), false, 1), self());
 			}
 
 			else{
-				System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " passed inspection.");
+				System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " passed the body inspection.");
 				security.tell(new Messages.Result(((Messages.Passenger)message).getPassengerId(), true, 1), self());
 			}
 		}
