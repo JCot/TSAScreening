@@ -11,18 +11,20 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		if(args.length <= 0) {
+		if(args.length <= 1) {
 			System.err.println("Error - Integer argument for number of lines requried.");
+			System.err.println("use: java Main [numberOfLines] [numberOfPassengers]");
 			System.exit(0);
 		}
 		final int numLines = Integer.parseInt(args[0]);
+		final int numPass = Integer.parseInt(args[1]);
 		final ArrayList<ActorRef> queues = new ArrayList<ActorRef>();
 		
 		//Construct each line (from queue to security station) as a unit,
 		//and when all lines are created,
 		//pass these in a collection of some kind to the document check.
 		
-		
+		System.out.println("---Starting Actors---");
 		//create Jail Actor
 		final ActorRef jail = actorOf(
 				new UntypedActorFactory(){
@@ -30,6 +32,7 @@ public class Main {
 						return new JailActor(numLines);
 					}
 				}); 
+		System.out.println("Starting Jail Actor");
 		jail.start();
 		
 		for (int i = 0; i < numLines; i++) {
@@ -43,6 +46,7 @@ public class Main {
 						}
 					});
 			sec.start();
+			System.out.println("Starting Security Actor for line " + i);
 			
 			//Create BagScan
 			final ActorRef bag = actorOf(
@@ -52,6 +56,7 @@ public class Main {
 						}
 					});
 			bag.start();
+			System.out.println("Starting Bag Scan Actor for line " + i);
 			
 			//create bodyScan
 			final ActorRef body = actorOf(
@@ -61,6 +66,7 @@ public class Main {
 						}
 					});
 			body.start();
+			System.out.println("Starting Body Scan Actor for line " + i);
 			
 			//create QueueActor
 			final ActorRef q = actorOf(
@@ -70,10 +76,12 @@ public class Main {
 						}
 					});
 			q.start();
+			System.out.println("Starting Queue Actor for line " + i);
 			
 			queues.add(q);//add to queues
 			
 		}
+		
 		
 		//create Document Check
 		ActorRef docCheck = actorOf(
@@ -87,21 +95,22 @@ public class Main {
 		
 		//process passengers...how do you know how many passengers are in each line?
 		//How many passengers do we need? What determines an "End Of Day"?
-		Messages.Passenger a = new Messages.Passenger("Pop");
-		Messages.Passenger b = new Messages.Passenger("Koch");
+		ArrayList<Messages.Passenger> passengers = new ArrayList<Messages.Passenger>();
+		for(int i = 0; i < numPass; i++) {
+			passengers.add(new Messages.Passenger(String.valueOf(i)));
+		}
 		Messages.EndOfDay end = new Messages.EndOfDay();
 		docCheck.start();
-		docCheck.tell(a);
-		docCheck.tell(b);
+		System.out.println("Starting Document Check Actor");
+		System.out.println("---Startup Complete---\n");
 		
-		//send shutdown message when all passengers are processed. 
-		try {
-			Thread.sleep(5000);
-		} catch (Exception e) {
-			e.printStackTrace();
+		for(int i = 0; i < numPass; i++) {
+			System.out.println("---Sent Message: Passenger " + i + ", From: Main, To: Document Check Actor---");
+			docCheck.tell(passengers.get(i));
 		}
 		
-		System.out.println("---Shutting down---"); //Print for testing
+		//send shutdown message when all passengers are processed.
+		System.out.println("---Sent Message: End of Day, From: Main, To: Document Check Actor---");
 		docCheck.tell(end);
 		
 

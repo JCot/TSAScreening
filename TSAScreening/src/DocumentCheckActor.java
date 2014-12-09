@@ -22,8 +22,8 @@ public class DocumentCheckActor extends UntypedActor{
 		
 		if(message instanceof Messages.Passenger){
 			int result = rand.nextInt(101);
-			
-			System.out.println("Document Check Actor is processing " + ((Messages.Passenger)message).getPassengerId());
+			System.out.println("---Received Message: Passenger " + ((Messages.Passenger)message).getPassengerId() + ", From: Main, To: Document Check Actor---");
+			System.out.println("Document Check Actor is processing Passenger " + ((Messages.Passenger)message).getPassengerId());
 			
 			//Passenger did not pass
 			if(result <= 20){
@@ -37,6 +37,7 @@ public class DocumentCheckActor extends UntypedActor{
 				} else {
 					nextLine++;
 				}
+				System.out.println("---Sent Message: Passenger " + ((Messages.Passenger)message).getPassengerId() + ", From: Document Check Actor, To: Queue Actor "+nextLine+"---");
 				queues.get(nextLine).tell((Messages.Passenger)message, self());
 			}
 			
@@ -44,7 +45,9 @@ public class DocumentCheckActor extends UntypedActor{
 		}
 		
 		if(message instanceof Messages.EndOfDay){
+			System.out.println("---Received Message: End of Day, From: Main, To: Document Check Actor---");
 			for(int i = 0; i < queues.size(); i++){
+				System.out.println("---Sent Message: End of Day, From: Document Check Actor, To: Queue Actor "+i+"---");
 				queues.get(i).tell((Messages.EndOfDay)message, self());
 			}
 			

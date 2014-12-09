@@ -19,13 +19,14 @@ public class JailActor extends UntypedActor{
 	public void onReceive(Object message) throws Exception {
 		
 		if(message instanceof Messages.Passenger){
-			System.out.println("Jail Actor received a Passenger message.");
-			System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " is sent to jail.");
+			System.out.println("---Received Message: Passenger "+((Messages.Passenger)message).getPassengerId()+", From: a Security Actor, To: Jail Actor---");
+			System.out.println("Jail Actor sends Passenger "+((Messages.Passenger) message).getPassengerId()+" to temporary holding.");
 			
 			jailedPassengers.add((Messages.Passenger)message);
 		}
 		
 		if(message instanceof Messages.EndOfDay){
+			System.out.println("---Received Message: End of Day, From: a Security Actor, To: Jail Actor---");
 			//If this was the last shutdown message
 			//Otherwise wait for eveything to shutdown
 			if((numSecurityDone+1) == numLines) {
@@ -35,6 +36,7 @@ public class JailActor extends UntypedActor{
 				for(int i = 0; i < jailedPassengers.size(); i++){
 					System.out.println("Passenger " + jailedPassengers.get(i).getPassengerId() + " is sent to pernament detention.");
 				}
+				System.out.println("---Shutting Down All Actors---");
 				Actors.registry().shutdownAll();
 			} else {
 				numSecurityDone++;

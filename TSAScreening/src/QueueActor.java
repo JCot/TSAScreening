@@ -21,33 +21,22 @@ public class QueueActor extends UntypedActor{
 	public void onReceive(Object message) throws Exception {
 		
 		if(message instanceof Messages.Passenger){
+			System.out.println("---Received Message: Passenger " + ((Messages.Passenger)message).getPassengerId() + " From: Document Check Actor, To: Queue Actor "+lineNum+"---");
 			System.out.println("Passenger " + ((Messages.Passenger)message).getPassengerId() + " has gotten in line " + lineNum + ".");
 			passengers.add((Messages.Passenger)message);
 			
+			System.out.println("---Sent Message: Passenger " + ((Messages.Passenger)message).getPassengerId() + ", From: Queue Actor "+lineNum+", To: Bag Scan Actor "+lineNum+"---");
 			bagScanner.tell(new Messages.Bag(((Messages.Passenger)message).getPassengerId()), self());
 			
+			System.out.println("---Sent Message: Passenger " + ((Messages.Passenger)message).getPassengerId() + ", From: Queue Actor "+lineNum+", To: Body Scan Actor "+lineNum+"---");
 			bodyScanner.tell((Messages.Passenger)message, self());
 		}
 		
-		//BodyScanReady requires a circular dependency that's hard to create/start
-		//so we could just rely on the BodyScan message queue to hold passengers
-		//until it's ready for the next one
-		if(message instanceof Messages.BodyScanReady){
-			System.out.println("Body Scan Ready received");
-			if(!dayOver || passengers.size() != 0){
-				//Resend the BodyScanready message??
-				bodyScanner.tell((Messages.Passenger)message, self());
-			}
-			
-			else{
-				bodyScanner.tell(new Messages.EndOfDay(), self());
-				bagScanner.tell(new Messages.EndOfDay(), self());
-			}
-		}
-		
 		if(message instanceof Messages.EndOfDay){
-			dayOver = true;
+			System.out.println("---Received Message: End of Day, From: Document Check Actor, To: Queue Actor "+lineNum+"---");
+			System.out.println("---Sent Message: End of Day, From: Queue Actor "+lineNum+", To: Bag Scan Actor "+lineNum+"---");
 			bodyScanner.tell(new Messages.EndOfDay(), self());
+			System.out.println("---Sent Message: End of Day, From: Queue Actor "+lineNum+", To: Body Scan Actor "+lineNum+"---");
 			bagScanner.tell(new Messages.EndOfDay(), self());
 			
 		}

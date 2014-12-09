@@ -20,6 +20,7 @@ public class SecurityActor extends UntypedActor{
 	public void onReceive(Object message) throws Exception {
 		
 		if(message instanceof Messages.Result){
+			System.out.println("---Received Message: Result - Passenger " + ((Messages.Result)message).getPassengerId() + ", From: Body Scan or Bag Scan Actors for line "+lineNum+", To: Security Actor "+lineNum+"---");
 			String passengerId = ((Messages.Result) message).getPassengerId();
 			
 			if(!results.containsKey(passengerId)){
@@ -33,11 +34,12 @@ public class SecurityActor extends UntypedActor{
 				scannerResults[((Messages.Result) message).getBagOrBody()] = ((Messages.Result) message).getResult();
 				
 				if(scannerResults[0] && scannerResults[1]){
-					System.out.println("Passenger " + ((Messages.Result)message).getPassengerId() + " passed the body and bag scan. They board their plane.");
+					System.out.println("Passenger " + ((Messages.Result)message).getPassengerId() + " passed through Security Actor "+lineNum+". They board their plane.");
 				}
 				
 				else{
-					System.out.println("Passenger " + ((Messages.Result)message).getPassengerId() + " is sent to jail");
+					System.out.println("Passenger " + ((Messages.Result)message).getPassengerId() + " is sent to jail from Security Actor "+lineNum+".");
+					System.out.println("---Sent Message: Result - Passenger " + ((Messages.Result)message).getPassengerId() + ", From: Security Actor "+lineNum+", To: Jail Actor---");
 					jail.tell(new Messages.Passenger(((Messages.Result)message).getPassengerId()), self());
 				}
 			}
@@ -45,8 +47,9 @@ public class SecurityActor extends UntypedActor{
 		
 		if(message instanceof Messages.EndOfDay){
 			numEndOfDays++;
-			
+			System.out.println("---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line "+lineNum+", To: Security Actor "+lineNum+"---");
 			if(numEndOfDays == 2){
+				System.out.println("---Sent Message: End of Day, From: Security Actor "+lineNum+", To: Jail Actor---");
 				jail.tell((Messages.EndOfDay)message, self());
 			}
 			
