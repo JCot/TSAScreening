@@ -7,6 +7,8 @@ public class JailActor extends UntypedActor{
 
 	private ArrayList<Messages.Passenger> jailedPassengers = new ArrayList<Messages.Passenger>();
 	
+	public JailActor(){}
+	
 	@Override
 	public void onReceive(Object message) throws Exception {
 		
