@@ -11,6 +11,10 @@ public class SecurityActor extends UntypedActor{
 	private HashMap<String, Boolean[]> results = new HashMap<String, Boolean[]>();
 	private int numEndOfDays = 0; //number of EndOfDay messages received. Must receive two, one from body scanner and one from bag scanner.
 	
+	public SecurityActor(int lineNum, ActorRef jail) {
+		this.lineNum = lineNum;
+		this.jail = jail;
+	}
 
 	@Override
 	public void onReceive(Object message) throws Exception {

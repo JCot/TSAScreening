@@ -17,19 +17,20 @@ public class Main {
 		//Construct each line (from queue to security station) as a unit,
 		//and when all lines are created,
 		//pass these in a collection of some kind to the document check.
+		JailActor jail = new JailActor();
 		for (int i = 0; i < numLines; i++) {
-			//create QueueActor
-			QueueActor q = new QueueActor(i);
-			BagScanActor b = new BagScanActor();//Create BagScan
-			//create bodyScan
-			//create securityActor
+			
+			SecurityActor sec = new SecurityActor(i, (ActorRef) jail);//create securityActor
+			BagScanActor bag = new BagScanActor(i, (ActorRef) sec);//Create BagScan
+			BodyScanActor body = new BodyScanActor(i, (ActorRef) sec);//create bodyScan
+			QueueActor q = new QueueActor(i, (ActorRef) bag, (ActorRef) body); //create QueueActor
 			queues.add((ActorRef) q);//add to queues
 			
 		}
 		//create Document Check
 		DocumentCheckActor docCheck = new DocumentCheckActor(queues); //pass queues to document check
 		//create Jail
-		JailActor jail = new JailActor();
+		
 		
 		
 		//process passengers...how do you know how many passengers are in each line?

@@ -10,6 +10,11 @@ public class BagScanActor extends UntypedActor{
 	private int lineNum;
 	private ActorRef security;
 	
+	public BagScanActor(int lineNum, ActorRef security) {
+		this.lineNum = lineNum;
+		this.security = security;
+	}
+	
 	@Override
 	public void onReceive(Object message) throws Exception {
 		

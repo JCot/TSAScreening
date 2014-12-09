@@ -10,6 +10,11 @@ public class BodyScanActor extends UntypedActor{
 	private int lineNum;
 	private ActorRef security;
 	
+	public BodyScanActor(int lineNum, ActorRef security) {
+		this.lineNum = lineNum;
+		this.security = security;
+	}
+	
 	@Override
 	public void onReceive(Object message) throws Exception {
 		

@@ -11,8 +11,10 @@ public class QueueActor extends UntypedActor{
 	private ActorRef bagScanner;
 	private ActorRef bodyScanner;
 	
-	public QueueActor(int lNum) {
+	public QueueActor(int lNum, ActorRef bagScanner, ActorRef bodyScanner) {
 		lineNum = lNum;
+		this.bagScanner = bagScanner;
+		this.bodyScanner = bodyScanner;
 	}
 	
 	@Override
