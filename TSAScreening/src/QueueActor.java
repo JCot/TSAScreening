@@ -25,10 +25,17 @@ public class QueueActor extends UntypedActor{
 			passengers.add((Messages.Passenger)message);
 			
 			bagScanner.tell(new Messages.Bag(((Messages.Passenger)message).getPassengerId()), self());
+			
+			bodyScanner.tell((Messages.Passenger)message, self());
 		}
 		
+		//BodyScanReady requires a circular dependency that's hard to create/start
+		//so we could just rely on the BodyScan message queue to hold passengers
+		//until it's ready for the next one
 		if(message instanceof Messages.BodyScanReady){
+			System.out.println("Body Scan Ready received");
 			if(!dayOver || passengers.size() != 0){
+				//Resend the BodyScanready message??
 				bodyScanner.tell((Messages.Passenger)message, self());
 			}
 			
