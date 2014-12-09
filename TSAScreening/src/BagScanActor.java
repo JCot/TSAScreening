@@ -38,6 +38,7 @@ public class BagScanActor extends UntypedActor{
 		
 		if(message instanceof Messages.EndOfDay){
 			security.tell((Messages.EndOfDay)message, self());
+			((ActorRef) this.self()).stop();
 		}
 		
 	}

@@ -15,7 +15,7 @@ public class Main {
 			System.err.println("Error - Integer argument for number of lines requried.");
 			System.exit(0);
 		}
-		int numLines = Integer.parseInt(args[0]);
+		final int numLines = Integer.parseInt(args[0]);
 		final ArrayList<ActorRef> queues = new ArrayList<ActorRef>();
 		
 		//Construct each line (from queue to security station) as a unit,
@@ -27,7 +27,7 @@ public class Main {
 		final ActorRef jail = actorOf(
 				new UntypedActorFactory(){
 					public UntypedActor create(){
-						return new JailActor();
+						return new JailActor(numLines);
 					}
 				}); 
 		jail.start();
@@ -88,11 +88,18 @@ public class Main {
 		//process passengers...how do you know how many passengers are in each line?
 		//How many passengers do we need? What determines an "End Of Day"?
 		Messages.Passenger pass = new Messages.Passenger("Pop");
+		Messages.EndOfDay end = new Messages.EndOfDay();
 		docCheck.start();
 		docCheck.tell(pass);
 		
-		//send shutdown message when all passengers are processed.  
-		
+		//send shutdown message when all passengers are processed. 
+		try {
+			Thread.sleep(10000);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		System.out.println("Shutting down");
+		docCheck.tell(end);
 		
 
 	}

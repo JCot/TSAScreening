@@ -47,6 +47,9 @@ public class QueueActor extends UntypedActor{
 		
 		if(message instanceof Messages.EndOfDay){
 			dayOver = true;
+			bodyScanner.tell(new Messages.EndOfDay(), self());
+			bagScanner.tell(new Messages.EndOfDay(), self());
+			
 		}
 		
 	}

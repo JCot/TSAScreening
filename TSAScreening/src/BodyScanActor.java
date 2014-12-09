@@ -37,6 +37,7 @@ public class BodyScanActor extends UntypedActor{
 		
 		if(message instanceof Messages.EndOfDay){
 			security.tell((Messages.EndOfDay)message, self());
+			
 		}
 		
 	}

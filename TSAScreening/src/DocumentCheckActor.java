@@ -39,6 +39,7 @@ public class DocumentCheckActor extends UntypedActor{
 			for(int i = 0; i < queues.size(); i++){
 				queues.get(i).tell((Messages.EndOfDay)message, self());
 			}
+			
 		}
 	}
 

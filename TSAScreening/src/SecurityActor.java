@@ -49,6 +49,7 @@ public class SecurityActor extends UntypedActor{
 			if(numEndOfDays == 2){
 				jail.tell((Messages.EndOfDay)message, self());
 			}
+			
 		}
 		
 	}
