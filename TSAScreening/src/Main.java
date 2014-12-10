@@ -1,3 +1,10 @@
+/**
+ * Driver program for the airport security simulation using actors.
+ * 
+ * @author Shannon Trudeau
+ * @author Andrew Popovich (ajp7560@rit.edu)
+ */
+
 import java.util.ArrayList;
 
 import akka.actor.*;
@@ -5,17 +12,19 @@ import static akka.actor.Actors.*;
 
 public class Main {
 
-	public Main() {
-		// TODO Auto-generated constructor stub
-	}
-
+	/**
+	 * Main method that creates all of the actors, passengers, and runs the program.
+	 * 
+	 * @param args - Index 0 - Total number of lines
+	 *               Index 1 - Total number of passengers
+	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		if(args.length <= 1) {
 			System.err.println("Error - Integer argument for number of lines requried.");
 			System.err.println("use: java Main [numberOfLines] [numberOfPassengers]");
 			System.exit(0);
 		}
+		
 		final int numLines = Integer.parseInt(args[0]);
 		final int numPass = Integer.parseInt(args[1]);
 		final ArrayList<ActorRef> queues = new ArrayList<ActorRef>();
@@ -23,7 +32,6 @@ public class Main {
 		//Construct each line (from queue to security station) as a unit,
 		//and when all lines are created,
 		//pass these in a collection of some kind to the document check.
-		
 		System.out.println("---Starting Actors---");
 		//create Jail Actor
 		final ActorRef jail = actorOf(
@@ -35,6 +43,7 @@ public class Main {
 		System.out.println("Starting Jail Actor");
 		jail.start();
 		
+		//For each line 
 		for (int i = 0; i < numLines; i++) {
 			final int lineNum = i;
 			
@@ -92,9 +101,7 @@ public class Main {
 				});
 		
 		
-		
-		//process passengers...how do you know how many passengers are in each line?
-		//How many passengers do we need? What determines an "End Of Day"?
+		//Create and send passenger messages and end of day message
 		ArrayList<Messages.Passenger> passengers = new ArrayList<Messages.Passenger>();
 		for(int i = 0; i < numPass; i++) {
 			passengers.add(new Messages.Passenger(String.valueOf(i)));

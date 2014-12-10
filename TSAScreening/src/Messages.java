@@ -1,9 +1,8 @@
 /**
- * 
- * @author Justin
- * 
  * Contains the static classes for the different messages
  * sent between actors.
+ * 
+ * @author Justin Cotner
  */
 
 public class Messages {
@@ -62,5 +61,4 @@ public class Messages {
 		}
 	}
 	
-	static class BodyScanReady{}
 }
