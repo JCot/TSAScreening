@@ -1,0 +1,898 @@
+---Starting Actors---
+Starting Jail Actor
+Starting Security Actor for line 0
+Starting Bag Scan Actor for line 0
+Starting Body Scan Actor for line 0
+Starting Queue Actor for line 0
+Starting Security Actor for line 1
+Starting Bag Scan Actor for line 1
+Starting Body Scan Actor for line 1
+Starting Queue Actor for line 1
+Starting Security Actor for line 2
+Starting Bag Scan Actor for line 2
+Starting Body Scan Actor for line 2
+Starting Queue Actor for line 2
+Starting Document Check Actor
+---Startup Complete---
+
+---Sent Message: Passenger 0, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 1, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 2, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 3, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 4, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 5, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 6, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 7, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 8, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 9, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 10, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 11, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 12, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 13, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 14, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 15, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 16, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 17, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 18, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 19, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 20, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 21, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 22, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 23, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 24, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 25, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 26, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 27, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 28, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 29, From: Main, To: Document Check Actor---
+---Sent Message: End of Day, From: Main, To: Document Check Actor---
+---Received Message: Passenger 0, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 0.
+
+---Sent Message: Passenger 0, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 1, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 1.
+
+
+Passenger 1 did not pass document check.
+
+---Received Message: Passenger 2, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 2.
+
+---Sent Message: Passenger 2, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Passenger 0 From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 3, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 3.
+
+---Sent Message: Passenger 3, From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 0 has gotten in line 0.
+
+---Sent Message: Passenger 0, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Received Message: Passenger 4, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 4.
+
+
+Passenger 4 did not pass document check.
+
+---Sent Message: Passenger 0, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 0's bag.
+
+
+Passenger 0's bag passed inspection.
+
+---Sent Message: Result - Passenger 0, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Passenger 3 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 3 has gotten in line 2.
+
+---Sent Message: Passenger 3, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 3, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Passenger 2 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 2 has gotten in line 1.
+
+---Sent Message: Passenger 2, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Received Message: Passenger 0, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Body Scan Actor 0 is scanning 0.
+
+---Sent Message: Passenger 2, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Result - Passenger 0, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Passenger 5, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 5.
+
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 3's bag.
+
+
+Passenger 3's bag passed inspection.
+
+---Sent Message: Result - Passenger 3, From: Bag Scan Actor 2, To: Security Actor 2---
+---Sent Message: Passenger 5, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 3, From: Queue Actor 2, To: Body Scan Actor 2---
+
+Body Scan Actor 2 is scanning 3.
+
+---Received Message: Passenger 6, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 6.
+
+---Sent Message: Passenger 6, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Passenger 2, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Passenger 7, From: Main, To: Document Check Actor---
+
+Body Scan Actor 1 is scanning 2.
+
+
+Document Check Actor is processing Passenger 7.
+
+---Sent Message: Passenger 7, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: Passenger 8, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 8.
+
+---Received Message: Result - Passenger 3, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+
+Bag Scan Actor 1 is scanning 2's bag.
+
+
+Passenger 2's bag passed inspection.
+
+---Sent Message: Result - Passenger 2, From: Bag Scan Actor 1, To: Security Actor 1---
+---Sent Message: Passenger 8, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 9, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 9.
+
+---Sent Message: Passenger 9, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Result - Passenger 2, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Passenger 10, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 10.
+
+---Sent Message: Passenger 10, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: Passenger 11, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 11.
+
+---Sent Message: Passenger 11, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 12, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 12.
+
+
+Passenger 12 did not pass document check.
+
+---Received Message: Passenger 13, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 13.
+
+---Sent Message: Passenger 13, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Passenger 14, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 14.
+
+---Sent Message: Passenger 14, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: Passenger 6 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 6 has gotten in line 1.
+
+---Sent Message: Passenger 6, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Received Message: Passenger 15, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 15.
+
+
+Passenger 15 did not pass document check.
+
+---Received Message: Passenger 16, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 16.
+
+---Sent Message: Passenger 16, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 17, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 17.
+
+---Sent Message: Passenger 17, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Sent Message: Passenger 6, From: Queue Actor 1, To: Body Scan Actor 1---
+
+Bag Scan Actor 1 is scanning 6's bag.
+
+
+Passenger 6's bag passed inspection.
+
+---Received Message: Passenger 18, From: Main, To: Document Check Actor---
+---Sent Message: Result - Passenger 6, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: Passenger 9 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 9 has gotten in line 1.
+
+---Sent Message: Passenger 9, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Sent Message: Passenger 9, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Passenger 13 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 13 has gotten in line 1.
+
+---Sent Message: Passenger 13, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Sent Message: Passenger 13, From: Queue Actor 1, To: Body Scan Actor 1---
+
+Document Check Actor is processing Passenger 18.
+
+---Received Message: Passenger 17 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 17 has gotten in line 1.
+
+---Sent Message: Passenger 18, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Received Message: Passenger 19, From: Main, To: Document Check Actor---
+---Sent Message: Passenger 17, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Received Message: Result - Passenger 6, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Sent Message: Passenger 17, From: Queue Actor 1, To: Body Scan Actor 1---
+
+Document Check Actor is processing Passenger 19.
+
+
+Passenger 19 did not pass document check.
+
+---Received Message: Passenger 5 From: Document Check Actor, To: Queue Actor 0---
+
+Passenger 5 has gotten in line 0.
+
+---Sent Message: Passenger 5, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 1 is scanning 9's bag.
+
+
+Passenger 9's bag passed inspection.
+
+---Sent Message: Passenger 5, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Passenger 20, From: Main, To: Document Check Actor---
+---Received Message: Passenger 8 From: Document Check Actor, To: Queue Actor 0---
+---Sent Message: Result - Passenger 9, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 5's bag.
+
+
+Passenger 5's bag passed inspection.
+
+---Received Message: Result - Passenger 9, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+
+Passenger 8 has gotten in line 0.
+
+
+Document Check Actor is processing Passenger 20.
+
+---Sent Message: Passenger 8, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: Result - Passenger 5, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+
+Bag Scan Actor 1 is scanning 13's bag.
+
+
+Passenger 13's bag passed inspection.
+
+---Received Message: Result - Passenger 5, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Sent Message: Passenger 8, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Passenger 20 did not pass document check.
+
+---Received Message: Passenger 11 From: Document Check Actor, To: Queue Actor 0---
+---Sent Message: Result - Passenger 13, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 8's bag.
+
+
+Passenger 8's bag passed inspection.
+
+---Sent Message: Result - Passenger 8, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+
+Bag Scan Actor 1 is scanning 17's bag.
+
+
+Passenger 17's bag passed inspection.
+
+---Sent Message: Result - Passenger 17, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: Passenger 7 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 7 has gotten in line 2.
+
+---Sent Message: Passenger 7, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 7, From: Queue Actor 2, To: Body Scan Actor 2---
+
+Passenger 11 has gotten in line 0.
+
+---Sent Message: Passenger 11, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: Passenger 11, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Passenger 16 From: Document Check Actor, To: Queue Actor 0---
+
+Passenger 16 has gotten in line 0.
+
+---Sent Message: Passenger 16, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: Passenger 16, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 11's bag.
+
+
+Passenger 11's bag passed inspection.
+
+---Sent Message: Result - Passenger 11, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Passenger 21, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 21.
+
+---Sent Message: Passenger 21, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 16's bag.
+
+
+Passenger 16's bag passed inspection.
+
+---Sent Message: Result - Passenger 16, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 7's bag.
+
+
+Passenger 7's bag passed inspection.
+
+---Sent Message: Result - Passenger 7, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: Passenger 10 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 10 has gotten in line 2.
+
+---Sent Message: Passenger 10, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 10, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Passenger 14 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 14 has gotten in line 2.
+
+---Sent Message: Passenger 14, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 14, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Result - Passenger 8, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Result - Passenger 11, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Result - Passenger 16, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Result - Passenger 13, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Result - Passenger 17, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Passenger 18 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 18 has gotten in line 2.
+
+---Sent Message: Passenger 18, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 18, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 10's bag.
+
+
+Passenger 10's bag failed inspection.
+
+---Sent Message: Result - Passenger 10, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: Result - Passenger 7, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Result - Passenger 10, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Passenger 21 From: Document Check Actor, To: Queue Actor 0---
+
+Passenger 21 has gotten in line 0.
+
+---Sent Message: Passenger 21, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Received Message: Passenger 22, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 22.
+
+---Sent Message: Passenger 22, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Passenger 23, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 23.
+
+---Sent Message: Passenger 23, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: Passenger 24, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 24.
+
+---Sent Message: Passenger 24, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 23 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 23 has gotten in line 2.
+
+---Sent Message: Passenger 23, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 23, From: Queue Actor 2, To: Body Scan Actor 2---
+---Sent Message: Passenger 21, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Passenger 24 From: Document Check Actor, To: Queue Actor 0---
+
+Passenger 24 has gotten in line 0.
+
+---Sent Message: Passenger 24, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: Passenger 24, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 14's bag.
+
+
+Passenger 14's bag passed inspection.
+
+---Sent Message: Result - Passenger 14, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: Passenger 25, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 25.
+
+---Sent Message: Passenger 25, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Passenger 26, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 26.
+
+---Sent Message: Passenger 26, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: Passenger 27, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 27.
+
+
+Passenger 27 did not pass document check.
+
+---Received Message: Passenger 28, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 28.
+
+---Sent Message: Passenger 28, From: Document Check Actor, To: Queue Actor 0---
+---Received Message: Passenger 29, From: Main, To: Document Check Actor---
+
+Document Check Actor is processing Passenger 29.
+
+
+Passenger 29 did not pass document check.
+
+---Received Message: Passenger 22 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 22 has gotten in line 1.
+
+---Sent Message: Passenger 22, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 21's bag.
+
+
+Passenger 21's bag failed inspection.
+
+---Sent Message: Result - Passenger 21, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+
+Bag Scan Actor 1 is scanning 22's bag.
+
+
+Passenger 22's bag passed inspection.
+
+---Sent Message: Result - Passenger 22, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: Result - Passenger 21, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Result - Passenger 22, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Sent Message: Passenger 22, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Passenger 25 From: Document Check Actor, To: Queue Actor 1---
+
+Passenger 25 has gotten in line 1.
+
+---Sent Message: Passenger 25, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Sent Message: Passenger 25, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Bag, From: Queue Actor 1, To: Bag Scan Actor 1---
+
+Bag Scan Actor 1 is scanning 25's bag.
+
+
+Passenger 25's bag passed inspection.
+
+---Sent Message: Result - Passenger 25, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: Result - Passenger 25, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: End of Day, From: Main, To: Document Check Actor---
+---Sent Message: End of Day, From: Document Check Actor, To: Queue Actor 0---
+---Sent Message: End of Day, From: Document Check Actor, To: Queue Actor 1---
+---Received Message: Passenger 28 From: Document Check Actor, To: Queue Actor 0---
+
+Passenger 28 has gotten in line 0.
+
+---Sent Message: Passenger 28, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: Passenger 28, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Passenger 26 From: Document Check Actor, To: Queue Actor 2---
+
+Passenger 26 has gotten in line 2.
+
+---Sent Message: Passenger 26, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: Passenger 26, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Result - Passenger 14, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 18's bag.
+
+
+Passenger 18's bag passed inspection.
+
+---Sent Message: Result - Passenger 18, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 23's bag.
+
+
+Passenger 23's bag failed inspection.
+
+---Sent Message: Result - Passenger 23, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: Bag, From: Queue Actor 2, To: Bag Scan Actor 2---
+
+Bag Scan Actor 2 is scanning 26's bag.
+
+
+Passenger 26's bag passed inspection.
+
+---Sent Message: Result - Passenger 26, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: Result - Passenger 18, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Result - Passenger 23, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Result - Passenger 26, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: End of Day, From: Document Check Actor, To: Queue Actor 0---
+---Sent Message: End of Day, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: End of Day, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: End of Day, From: Document Check Actor, To: Queue Actor 1---
+---Sent Message: End of Day, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Sent Message: End of Day, From: Queue Actor 1, To: Body Scan Actor 1---
+---Sent Message: End of Day, From: Document Check Actor, To: Queue Actor 2---
+---Received Message: End of Day, From: Queue Actor 1, To: Bag Scan Actor 1---
+---Sent Message: End of Day, From: Bag Scan Actor 1, To: Security Actor 1---
+---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 24's bag.
+
+
+Passenger 24's bag failed inspection.
+
+---Sent Message: Result - Passenger 24, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: Bag, From: Queue Actor 0, To: Bag Scan Actor 0---
+
+Bag Scan Actor 0 is scanning 28's bag.
+
+
+Passenger 28's bag passed inspection.
+
+---Sent Message: Result - Passenger 28, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: End of Day, From: Queue Actor 0, To: Bag Scan Actor 0---
+---Sent Message: End of Day, From: Bag Scan Actor 0, To: Security Actor 0---
+---Received Message: End of Day, From: Document Check Actor, To: Queue Actor 2---
+---Sent Message: End of Day, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: End of Day, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: End of Day, From: Queue Actor 2, To: Bag Scan Actor 2---
+---Sent Message: End of Day, From: Bag Scan Actor 2, To: Security Actor 2---
+---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Result - Passenger 24, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Result - Passenger 28, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Passenger 3 passed the body inspection.
+
+
+Passenger 2 passed the body inspection.
+
+
+Passenger 0 passed the body inspection.
+
+---Sent Message: Result - Passenger 0, From: Body Scan Actor 0, To: Security Actor 0---
+---Sent Message: Result - Passenger 3, From: Body Scan Actor 2, To: Security Actor 2---
+---Sent Message: Result - Passenger 2, From: Body Scan Actor 1, To: Security Actor 1---
+---Received Message: Passenger 6, From: Queue Actor 1, To: Body Scan Actor 1---
+
+Body Scan Actor 1 is scanning 6.
+
+---Received Message: Result - Passenger 3, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Result - Passenger 2, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Passenger 5, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Body Scan Actor 0 is scanning 5.
+
+
+Passenger 2 passed through Security Actor 1. They board their plane.
+
+
+Passenger 3 passed through Security Actor 2. They board their plane.
+
+---Received Message: Passenger 7, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Result - Passenger 0, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Body Scan Actor 2 is scanning 7.
+
+
+Passenger 0 passed through Security Actor 0. They board their plane.
+
+
+Passenger 6 failed the body inspection.
+
+
+Passenger 5 failed the body inspection.
+
+
+Passenger 7 passed the body inspection.
+
+---Sent Message: Result - Passenger 5, From: Body Scan Actor 0, To: Security Actor 0---
+---Sent Message: Result - Passenger 6, From: Body Scan Actor 1, To: Security Actor 1---
+---Sent Message: Result - Passenger 7, From: Body Scan Actor 2, To: Security Actor 2---
+---Received Message: Passenger 9, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Passenger 10, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Passenger 8, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Body Scan Actor 0 is scanning 8.
+
+
+Body Scan Actor 1 is scanning 9.
+
+---Received Message: Result - Passenger 5, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Passenger 5 is sent to jail from Security Actor 0.
+
+---Sent Message: Result - Passenger 5, From: Security Actor 0, To: Jail Actor---
+
+Body Scan Actor 2 is scanning 10.
+
+---Received Message: Result - Passenger 7, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+
+Passenger 7 passed through Security Actor 2. They board their plane.
+
+---Received Message: Result - Passenger 6, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Passenger 5, From: a Security Actor, To: Jail Actor---
+
+Passenger 6 is sent to jail from Security Actor 1.
+
+
+Jail Actor sends Passenger 5 to temporary holding.
+
+---Sent Message: Result - Passenger 6, From: Security Actor 1, To: Jail Actor---
+---Received Message: Passenger 6, From: a Security Actor, To: Jail Actor---
+
+Jail Actor sends Passenger 6 to temporary holding.
+
+
+Passenger 9 passed the body inspection.
+
+---Sent Message: Result - Passenger 9, From: Body Scan Actor 1, To: Security Actor 1---
+
+Passenger 10 passed the body inspection.
+
+
+Passenger 8 passed the body inspection.
+
+---Sent Message: Result - Passenger 10, From: Body Scan Actor 2, To: Security Actor 2---
+---Sent Message: Result - Passenger 8, From: Body Scan Actor 0, To: Security Actor 0---
+---Received Message: Result - Passenger 9, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Passenger 11, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Body Scan Actor 0 is scanning 11.
+
+
+Passenger 9 passed through Security Actor 1. They board their plane.
+
+---Received Message: Passenger 14, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Result - Passenger 10, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+
+Body Scan Actor 2 is scanning 14.
+
+---Received Message: Passenger 13, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Result - Passenger 8, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Passenger 10 is sent to jail from Security Actor 2.
+
+
+Passenger 8 passed through Security Actor 0. They board their plane.
+
+
+Body Scan Actor 1 is scanning 13.
+
+---Sent Message: Result - Passenger 10, From: Security Actor 2, To: Jail Actor---
+---Received Message: Passenger 10, From: a Security Actor, To: Jail Actor---
+
+Jail Actor sends Passenger 10 to temporary holding.
+
+
+Passenger 13 passed the body inspection.
+
+
+Passenger 11 failed the body inspection.
+
+
+Passenger 14 passed the body inspection.
+
+---Sent Message: Result - Passenger 11, From: Body Scan Actor 0, To: Security Actor 0---
+---Sent Message: Result - Passenger 13, From: Body Scan Actor 1, To: Security Actor 1---
+---Received Message: Passenger 16, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Body Scan Actor 0 is scanning 16.
+
+---Sent Message: Result - Passenger 14, From: Body Scan Actor 2, To: Security Actor 2---
+---Received Message: Result - Passenger 11, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Passenger 11 is sent to jail from Security Actor 0.
+
+---Sent Message: Result - Passenger 11, From: Security Actor 0, To: Jail Actor---
+---Received Message: Passenger 17, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Result - Passenger 13, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+
+Passenger 13 passed through Security Actor 1. They board their plane.
+
+---Received Message: Result - Passenger 14, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Passenger 18, From: Queue Actor 2, To: Body Scan Actor 2---
+
+Passenger 14 passed through Security Actor 2. They board their plane.
+
+---Received Message: Passenger 11, From: a Security Actor, To: Jail Actor---
+
+Jail Actor sends Passenger 11 to temporary holding.
+
+
+Body Scan Actor 1 is scanning 17.
+
+
+Body Scan Actor 2 is scanning 18.
+
+
+Passenger 17 failed the body inspection.
+
+
+Passenger 16 passed the body inspection.
+
+
+Passenger 18 passed the body inspection.
+
+---Sent Message: Result - Passenger 17, From: Body Scan Actor 1, To: Security Actor 1---
+---Sent Message: Result - Passenger 16, From: Body Scan Actor 0, To: Security Actor 0---
+---Sent Message: Result - Passenger 18, From: Body Scan Actor 2, To: Security Actor 2---
+---Received Message: Result - Passenger 16, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: Result - Passenger 17, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: Result - Passenger 18, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+
+Passenger 16 passed through Security Actor 0. They board their plane.
+
+---Received Message: Passenger 23, From: Queue Actor 2, To: Body Scan Actor 2---
+
+Body Scan Actor 2 is scanning 23.
+
+
+Passenger 18 passed through Security Actor 2. They board their plane.
+
+---Received Message: Passenger 22, From: Queue Actor 1, To: Body Scan Actor 1---
+
+Passenger 17 is sent to jail from Security Actor 1.
+
+---Received Message: Passenger 21, From: Queue Actor 0, To: Body Scan Actor 0---
+---Sent Message: Result - Passenger 17, From: Security Actor 1, To: Jail Actor---
+
+Body Scan Actor 0 is scanning 21.
+
+
+Body Scan Actor 1 is scanning 22.
+
+---Received Message: Passenger 17, From: a Security Actor, To: Jail Actor---
+
+Jail Actor sends Passenger 17 to temporary holding.
+
+
+Passenger 23 passed the body inspection.
+
+---Sent Message: Result - Passenger 23, From: Body Scan Actor 2, To: Security Actor 2---
+
+Passenger 22 passed the body inspection.
+
+
+Passenger 21 passed the body inspection.
+
+---Sent Message: Result - Passenger 22, From: Body Scan Actor 1, To: Security Actor 1---
+---Sent Message: Result - Passenger 21, From: Body Scan Actor 0, To: Security Actor 0---
+---Received Message: Result - Passenger 23, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Received Message: Result - Passenger 22, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+
+Passenger 23 is sent to jail from Security Actor 2.
+
+---Received Message: Passenger 24, From: Queue Actor 0, To: Body Scan Actor 0---
+---Received Message: Passenger 25, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Passenger 26, From: Queue Actor 2, To: Body Scan Actor 2---
+
+Body Scan Actor 2 is scanning 26.
+
+
+Body Scan Actor 1 is scanning 25.
+
+---Received Message: Result - Passenger 21, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Body Scan Actor 0 is scanning 24.
+
+---Sent Message: Result - Passenger 23, From: Security Actor 2, To: Jail Actor---
+
+Passenger 22 passed through Security Actor 1. They board their plane.
+
+
+Passenger 21 is sent to jail from Security Actor 0.
+
+---Received Message: Passenger 23, From: a Security Actor, To: Jail Actor---
+
+Jail Actor sends Passenger 23 to temporary holding.
+
+---Sent Message: Result - Passenger 21, From: Security Actor 0, To: Jail Actor---
+---Received Message: Passenger 21, From: a Security Actor, To: Jail Actor---
+
+Jail Actor sends Passenger 21 to temporary holding.
+
+
+Passenger 25 passed the body inspection.
+
+
+Passenger 26 passed the body inspection.
+
+
+Passenger 24 passed the body inspection.
+
+---Sent Message: Result - Passenger 26, From: Body Scan Actor 2, To: Security Actor 2---
+---Sent Message: Result - Passenger 25, From: Body Scan Actor 1, To: Security Actor 1---
+---Sent Message: Result - Passenger 24, From: Body Scan Actor 0, To: Security Actor 0---
+---Received Message: End of Day, From: Queue Actor 1, To: Body Scan Actor 1---
+---Received Message: Passenger 28, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Body Scan Actor 0 is scanning 28.
+
+---Received Message: End of Day, From: Queue Actor 2, To: Body Scan Actor 2---
+---Received Message: Result - Passenger 26, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Sent Message: End of Day, From: Body Scan Actor 1, To: Security Actor 1---
+
+Passenger 26 passed through Security Actor 2. They board their plane.
+
+---Received Message: Result - Passenger 24, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+
+Passenger 24 is sent to jail from Security Actor 0.
+
+---Sent Message: Result - Passenger 24, From: Security Actor 0, To: Jail Actor---
+---Sent Message: End of Day, From: Body Scan Actor 2, To: Security Actor 2---
+---Received Message: Result - Passenger 25, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+
+Passenger 25 passed through Security Actor 1. They board their plane.
+
+---Received Message: Passenger 24, From: a Security Actor, To: Jail Actor---
+---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line 2, To: Security Actor 2---
+---Sent Message: End of Day, From: Security Actor 2, To: Jail Actor---
+
+Jail Actor sends Passenger 24 to temporary holding.
+
+---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line 1, To: Security Actor 1---
+---Received Message: End of Day, From: a Security Actor, To: Jail Actor---
+---Sent Message: End of Day, From: Security Actor 1, To: Jail Actor---
+---Received Message: End of Day, From: a Security Actor, To: Jail Actor---
+
+Passenger 28 passed the body inspection.
+
+---Sent Message: Result - Passenger 28, From: Body Scan Actor 0, To: Security Actor 0---
+---Received Message: Result - Passenger 28, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Received Message: End of Day, From: Queue Actor 0, To: Body Scan Actor 0---
+
+Passenger 28 passed through Security Actor 0. They board their plane.
+
+---Sent Message: End of Day, From: Body Scan Actor 0, To: Security Actor 0---
+---Received Message: End of Day, From: Body Scan or Bag Scan Actors for line 0, To: Security Actor 0---
+---Sent Message: End of Day, From: Security Actor 0, To: Jail Actor---
+---Received Message: End of Day, From: a Security Actor, To: Jail Actor---
+
+Jail Actor has received an End of Day message.
+Jail Actor sends passengers in jail to permanent detention.
+Passenger 5 is sent to permanent detention.
+Passenger 6 is sent to permanent detention.
+Passenger 10 is sent to permanent detention.
+Passenger 11 is sent to permanent detention.
+Passenger 17 is sent to permanent detention.
+Passenger 23 is sent to permanent detention.
+Passenger 21 is sent to permanent detention.
+Passenger 24 is sent to permanent detention.
+
+---Shutting Down All Actors---
